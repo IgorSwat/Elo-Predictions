@@ -1,0 +1,9 @@
+**/__pycache__
+
+.vscode
+**/.vscode
+
+data/**
+!data/.gitkeep
+
+preprocessing/tmp
