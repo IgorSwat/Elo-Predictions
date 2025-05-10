@@ -16,7 +16,7 @@ from collections import defaultdict
 def game_info(game: pgn.Game) -> None:
     print(f"---------- Game {game.id()} ----------")
     print(f"Time control: {game.tempo()}, {game.time_control().base_m} min + {game.time_control().increment_s} s")
-    print(f"Players: {game.player(chess.WHITE).name} {game.data.headers["Result"]} {game.player(chess.BLACK).name}")
+    print(f"Players: {game.player(chess.WHITE).name} {game.data.header("Result")} {game.player(chess.BLACK).name}")
 
 
 # -------------------------

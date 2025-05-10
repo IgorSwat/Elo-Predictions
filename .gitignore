@@ -7,3 +7,5 @@ data/**
 !data/.gitkeep
 
 preprocessing/tmp
+
+pgn_parser/build

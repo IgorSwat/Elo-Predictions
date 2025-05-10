@@ -2,6 +2,7 @@ from . import pgn
 from . import reader
 
 from collections import defaultdict
+from datetime import datetime
 from typing import Callable
 
 
