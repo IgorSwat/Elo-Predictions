@@ -30,6 +30,8 @@ public:
     // Getters
     std::string header(std::string h_name) { return m_headers[h_name]; }
     std::string all_data() { return std::string(m_data.begin(), m_data.begin() + m_data_size); }
+    bool has_clocks() const { return m_clocks;}
+    bool has_evals() const { return m_evals;}
 
 private:
     // Data connection - buffer & stream
@@ -40,6 +42,8 @@ private:
     std::unordered_map<std::string, std::string> m_headers;     // PGN headers mapping (name - value)
     std::array<char, STORAGE_SIZE> m_data;                      // An entire PGN
     std::size_t m_data_size = 0;
+    bool m_clocks = false;
+    bool m_evals = false;
 
     // Parser state
     State m_curr_state = EXPECTING_ANYTHING;

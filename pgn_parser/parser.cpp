@@ -12,6 +12,8 @@ bool Parser::parse_next()
     m_headers.clear();
     m_data_size = 0;
     m_curr_state = EXPECTING_ANYTHING;
+    m_clocks = false;
+    m_evals = false;
 
     while (true) {
         int bt = m_stream.get();
@@ -42,6 +44,10 @@ bool Parser::parse_next()
         }
         else if (m_curr_state == EXPECTING_ANYTHING && c == '{')
             m_curr_state = INSIDE_COMMENT;
+        else if (m_curr_state == INSIDE_COMMENT && c == 'e')
+            m_evals = true;
+        else if (m_curr_state == INSIDE_COMMENT && c == 'c')
+            m_clocks = true;
         else if (m_curr_state == INSIDE_COMMENT && c == '}')
             m_curr_state = EXPECTING_ANYTHING;
         else if (m_curr_state == EXPECTING_ANYTHING && c == '-' && m_data[m_data_size - 2] != 'O')
@@ -49,6 +55,8 @@ bool Parser::parse_next()
         else if (m_curr_state == EXPECTING_END_SCORE_WIN)
             break;
         else if (m_curr_state == EXPECTING_END_SCORE_DRAW && c == '2')
+            break;
+        else if (m_curr_state == EXPECTING_ANYTHING && c == '*')        // Some weird correspondance game notation
             break;
     }
 

@@ -6,6 +6,11 @@
 data/**
 !data/.gitkeep
 
+external/**
+!external/.gitkeep
+
 preprocessing/tmp
 
 pgn_parser/build
+
+analysis/reports/*.docx
