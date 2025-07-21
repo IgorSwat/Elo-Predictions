@@ -1,20 +1,20 @@
 # Elo-Predictions
 
-This project focuses on the statistical analysis of chess games to predict a player's Elo rating. By processing a large dataset of online chess games, the goal is to build a regression model that estimates a player's rating based on various in-game performance metrics and to identify which features are most indicative of a player's skill level[cite: 786, 869, 870].
+This project focuses on the statistical analysis of chess games to predict a player's Elo rating. By processing a large dataset of online chess games, the goal is to build a regression model that estimates a player's rating based on various in-game performance metrics and to identify which features are most indicative of a player's skill level.
 
 ## 1. Data Source
 
-The dataset for this project was built from the Lichess Open Database, a public repository of chess games played on the platform[cite: 787, 790].
+The dataset for this project was built from the Lichess Open Database, a public repository of chess games played on the platform.
 
 * **Data Scope**: The analysis uses standard rated games played in **March 2025**.
-* **Volume**: This specific monthly dump contains over **97 million games** [cite: 791, 809], totaling approximately **31.8 GB** of data in the PGN (Portable Game Notation) format.
+* **Volume**: This specific monthly dump contains over **97 million games** , totaling approximately **31.8 GB** of data in the PGN (Portable Game Notation) format.
 * **License**: The database is released under the **Creative Commons CC0 license**, which allows for free use, modification, and redistribution.
 
 ## 2. Data Processing Pipeline
 
 ### Custom PGN Parser
 
-To efficiently process the massive volume of game data (~97 million games), a custom, high-performance PGN parser was developed. Standard solutions, such as the parser in the `python-chess` library, were found to be too slow for a dataset of this scale[cite: 823]. The new parser was implemented in **C++** for maximum speed, with **Pybind11** used to create Python bindings for easy integration into the data analysis workflow.
+To efficiently process the massive volume of game data (~97 million games), a custom, high-performance PGN parser was developed. Standard solutions, such as the parser in the `python-chess` library, were found to be too slow for a dataset of this scale. The new parser was implemented in **C++** for maximum speed, with **Pybind11** used to create Python bindings for easy integration into the data analysis workflow.
 
 ### Preprocessing and Selection
 
